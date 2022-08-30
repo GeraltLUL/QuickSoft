@@ -186,7 +186,7 @@ def save_game_session():
         try:
             req_data = request.form.to_dict()
             len_of_user = 3
-
+            print(req_data)
             for i in range(len(req_data)//len_of_user):
                 x = request.form.get(f'x[{i}]').split(',')
                 y = request.form.get(f'y[{i}]').split(',')
@@ -195,8 +195,8 @@ def save_game_session():
                 user_data = {'x': [], 'y': []}
 
                 for j in range(len(x)):
-                    user_data['x'].append(int(x[j]))
-                    user_data['y'].append(int(y[j]))
+                    user_data['x'].append(float(x[j]))
+                    user_data['y'].append(float(y[j]))
                 update_and_push('id', user_id, 'gameSessions', user_data)
 
             return '200'
