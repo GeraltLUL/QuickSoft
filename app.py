@@ -74,7 +74,8 @@ def login():
         try:
             data = request.get_json()
             cur_user = find_user_by_email(str(data['email']))
-
+            print(data)
+            
             if cur_user is not None and cur_user.password == str(data['password']):
                 session['username'] = cur_user.name
                 session['id'] = cur_user.id
