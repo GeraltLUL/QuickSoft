@@ -195,8 +195,8 @@ def save_game_session():
                 user_data = {'x': [], 'y': []}
 
                 for j in range(len(x)):
-                    user_data['x'].append(float(x[j]))
-                    user_data['y'].append(float(y[j]))
+                    user_data['x'].append(float(x[j].replace(',', '.')))
+                    user_data['y'].append(float(y[j].replace(',', '.')))
                 update_and_push('id', user_id, 'gameSessions', user_data)
 
             return '200'
