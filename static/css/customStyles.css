@@ -1,0 +1,224 @@
+.flash {
+  padding: 10px;
+}
+
+.flash.success {
+  border: 1px solid #21DB56;
+  background: #AEFFC5;
+}
+
+.flash.error {
+  border: 1px solid #FF4343;
+  background: #FF9C9C;
+}
+
+.form-error {
+  background: #FF9C9C;
+}
+
+header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: black no-repeat center center scroll;
+  }
+
+  header video {
+    display: none;
+  }
+}
+
+.modal-content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.btn-close {
+  position: absolute;
+  right: 0;
+  padding: 1em;
+}
+
+h1 {
+  font-size: 2.3em;
+  font-weight: bold;
+}
+
+.myform {
+  padding: 2em;
+  max-width: 100%;
+  color: #fff;
+  box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+
+  @media (max-width: 576px) {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.form-control:focus {
+  box-shadow: inset 0 -1px 0 #7e7e7e;
+}
+
+.form-control {
+  background-color: inherit;
+  color: #fff;
+  padding-left: 0;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #fff;
+}
+
+.myform .btn {
+  width: 100%;
+  font-weight: 800;
+  background-color: #fff;
+  border-radius: 0;
+  padding: 0.5em 0;
+}
+
+.myform .btn:hover {
+  background-color: inherit;
+  color: #fff;
+  border-color: #fff;
+}
+
+p {
+  text-align: center;
+  padding-top: 2em;
+  color: grey;
+}
+
+p a {
+  color: #e1e1e1;
+  text-decoration: none;
+}
+
+p a:hover {
+  color: #fff;
+}
+
+.team-describtion {
+  text-align: center;
+  padding-top: 0.5em;
+  color: grey;
+}
+
+.bg-my-dark {
+  --bs-bg-opacity: 1;
+  background-color: #2e2c2c;
+}
+
+
+
+.button-qs {
+  color: #fff;
+  background-color: #F20C32;
+  border-color: #F20C32;
+}
+
+
+.sliding-button {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  position: relative;
+  padding: 15px 30px;
+  border: 1px solid;
+  border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+  border-image-slice: 1;
+  margin: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: 2px;
+  transition: .8s cubic-bezier(.165, .84, .44, 1);
+}
+
+.sliding-button:before {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  z-index: -1;
+  color: white;
+  background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+  transition: .8s cubic-bezier(.165, .84, .44, 1);
+}
+
+.sliding-button:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0);
+}
+
+.sliding-button:hover:before {
+  cursor: pointer;
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+
+/* .heatmap {
+  height: 500px;
+  width: 400px;
+  border: red;
+  border-style: double;
+  margin: 1%;
+} */
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+  background-color: #BC102D;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
