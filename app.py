@@ -119,7 +119,8 @@ def loginTest():
                 return {
                     'msg': f'Добро пожаловать, <strong>{cur_user.name}</strong>!',
                     'category': 'Success',
-                    'name': cur_user.name
+                    'name': cur_user.name,
+                    'id': cur_user.id
                 }
             else:
                 return {
