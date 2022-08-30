@@ -6,6 +6,7 @@ from validation import input_form_correct
 import os
 from flask_login import UserMixin
 import uuid
+import yadisk
 from datetime import datetime
 
 
@@ -71,7 +72,6 @@ def profile():
 def login():
     if request.method == 'POST':
         try:
-            print(request.get_json())
             data = request.get_json()
             cur_user = find_user_by_email(str(data['email']))
 
@@ -147,22 +147,26 @@ def register():
 
 
 # Avatar uploading
-@app.route('/upload_avatar', methods=['GET', 'POST'])
-@login_required
-def upload_avatar():
-    # cur_user_id = session['id']
-    cur_user_id = current_user.id
-    avatar = request.files['avatar']
-    avatar_name = avatar.filename
-
-    if request.method == 'POST':
-        if avatar is not None:
-            if avatar_name[-3:] in ["jpg", "png"]:
-                file_name = f"{avatar_name[:-4]}-id-{uuid.uuid4()}.{avatar_name[-3:]}"
-                avatar.save(os.path.join(app.config['UPLOAD_IMAGE_FOLDER'], file_name))
-                update_record('id', cur_user_id, 'avatar', file_name)
-
-    return redirect(url_for('profile'))
+# @app.route('/upload_avatar', methods=['POST'])
+# @login_required
+# def upload_avatar():
+#     avatar = request.files['avatar']
+#     avatar_name = avatar.filename
+#
+#     if request.method == 'POST':
+#         if avatar is not None:
+#             if avatar_name[-3:] in ["jpg", "png"]:
+#                 y = yadisk.YaDisk(token=os.getenv('YANDEX_API_KEY'))
+#                 print(y)
+#                 print(avatar)
+#                 print(avatar_name)
+#                 file_name = f"{avatar_name[:-4]}-id-{uuid.uuid4()}.{avatar_name[-3:]}"
+#                 print(file_name)
+#                 y.upload(f'{avatar}', f'/QuickSoft/UsersAvatars/{file_name}')
+#                 #avatar.save(os.path.join(app.config['UPLOAD_IMAGE_FOLDER'], file_name))
+#                 update_record('id', current_user.id, 'avatar', file_name)
+#
+#     return redirect(url_for('profile'))
 
 
 # Logout
@@ -193,7 +197,6 @@ def save_game_session():
                 for j in range(len(x)):
                     user_data['x'].append(int(x[j]))
                     user_data['y'].append(int(y[j]))
-                print(user_data)
                 update_and_push('id', user_id, 'gameSessions', user_data)
 
             return '200'

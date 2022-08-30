@@ -1,6 +1,11 @@
 window.addEventListener('DOMContentLoaded', event => {
     //    <div class="heatmap" style="height: 500px; width: 400px;"></div>
 
+    // function getUserAvatar() {
+
+    //     document.querySelector('#userAvatar').setAttribute('src', {});
+    // }
+
     async function getUserSessions() {
         await fetch(`${baseUrl}/get_game_sessions`)
             .then(data => data.json())
