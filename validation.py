@@ -1,6 +1,4 @@
 import re
-from flask import flash
-
 
 # User's fullname validation
 def name_correct(data: str) -> bool:
