@@ -104,12 +104,12 @@ def login():
 
 # Login
 @app.route('/loginTest', methods=['POST', 'GET'])
-def login():
+def loginTest():
     if request.method == 'POST':
         try:
             req_data = request.form.to_dict()
             print(req_data)
-            
+
             cur_user = find_user_by_email(request.form.get('email'))
             
             if cur_user is not None and cur_user.password == str(request.form.get('password')):
