@@ -102,6 +102,41 @@ def login():
     # }
 
 
+# Login
+@app.route('/loginTest', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        try:
+            req_data = request.form.to_dict()
+            print(req_data)
+            
+            cur_user = find_user_by_email(request.form.get('email'))
+            
+            if cur_user is not None and cur_user.password == str(request.form.get('password')):
+                session['username'] = cur_user.name
+                session['id'] = cur_user.id
+                login_user(cur_user)
+                return {
+                    'msg': f'Добро пожаловать, <strong>{cur_user.name}</strong>!',
+                    'category': 'Success',
+                    'name': cur_user.name
+                }
+            else:
+                return {
+                    'msg': 'Неверный пароль или email!',
+                    'category': 'Error'
+                }
+        except Exception as e:
+            print(e)
+            return {
+                'msg': e,
+                'category': 'Error'
+            }
+    # return {
+    #     'msg': 'Unknown Error!',
+    #     'category': 'Error'
+    # }
+
 # Register
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -145,6 +180,7 @@ def register():
     #     'msg': 'Unknown error!',
     #     'category': 'Error'
     # }
+
 
 
 # Avatar uploading
