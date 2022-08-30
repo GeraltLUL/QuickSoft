@@ -6,7 +6,7 @@ from validation import input_form_correct
 import os
 from flask_login import UserMixin
 import uuid
-import yadisk
+#import yadisk
 from datetime import datetime
 
 
