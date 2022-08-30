@@ -188,8 +188,8 @@ def save_game_session():
             len_of_user = 3
             print(req_data)
             for i in range(len(req_data)//len_of_user):
-                x = request.form.get(f'x[{i}]').split(',')
-                y = request.form.get(f'y[{i}]').split(',')
+                x = request.form.get(f'x[{i}]').split(';')
+                y = request.form.get(f'y[{i}]').split(';')
                 user_id = request.form.get(f'id[{i}]')
 
                 user_data = {'x': [], 'y': []}
