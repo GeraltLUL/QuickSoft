@@ -6,9 +6,8 @@ from validation import input_form_correct
 import os
 from flask_login import UserMixin
 import uuid
-#import yadisk
+# import yadisk
 from datetime import datetime
-
 
 # Flask config
 app = Flask(__name__)
@@ -75,7 +74,7 @@ def login():
             data = request.get_json()
             cur_user = find_user_by_email(str(data['email']))
             print(data)
-            
+
             if cur_user is not None and cur_user.password == str(data['password']):
                 session['username'] = cur_user.name
                 session['id'] = cur_user.id
@@ -111,7 +110,7 @@ def loginTest():
             print(req_data)
 
             cur_user = find_user_by_email(request.form.get('email'))
-            
+
             if cur_user is not None and cur_user.password == str(request.form.get('password')):
                 session['username'] = cur_user.name
                 session['id'] = cur_user.id
@@ -137,6 +136,7 @@ def loginTest():
     #     'msg': 'Unknown Error!',
     #     'category': 'Error'
     # }
+
 
 # Register
 @app.route('/register', methods=['GET', 'POST'])
@@ -183,7 +183,6 @@ def register():
     # }
 
 
-
 # Avatar uploading
 # @app.route('/upload_avatar', methods=['POST'])
 # @login_required
@@ -225,7 +224,7 @@ def save_game_session():
             req_data = request.form.to_dict()
             len_of_user = 3
             print(req_data)
-            for i in range(len(req_data)//len_of_user):
+            for i in range(len(req_data) // len_of_user):
                 x = request.form.get(f'x[{i}]').split(';')
                 y = request.form.get(f'y[{i}]').split(';')
                 user_id = request.form.get(f'id[{i}]')
@@ -346,6 +345,7 @@ def update_record(findKey, findValue, key, value):
 def update_and_push(findKey, findValue, key, value):
     collection.find_one_and_update({findKey: findValue},
                                    {'$push': {key: value}})
+
 
 if __name__ == '__main__':
     app.run(debug=False)
