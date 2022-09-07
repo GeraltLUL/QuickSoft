@@ -222,23 +222,26 @@ def save_game_session():
     if request.method == 'POST':
         try:
             req_data = request.form.to_dict()
-            len_of_user = 3
             print(req_data)
-            for i in range(len(req_data) // len_of_user):
-                x = request.form.get(f'x[{i}]').split(';')
-                y = request.form.get(f'y[{i}]').split(';')
-                user_id = request.form.get(f'id[{i}]')
 
-                user_data = {'x': [], 'y': []}
+            x = request.form.get('x').split(';')
+            y = request.form.get('y').split(';')
+            user_id = request.form.get('id')
 
-                for j in range(len(x)):
-                    user_data['x'].append(float(x[j].replace(',', '.')))
-                    user_data['y'].append(float(y[j].replace(',', '.')))
-                update_and_push('id', user_id, 'gameSessions', user_data)
+            user_data = {'x': [], 'y': []}
+
+            for j in range(len(x)):
+                user_data['x'].append(float(x[j].replace(',', '.')))
+                user_data['y'].append(float(y[j].replace(',', '.')))
+
+            user_data['sessionId'] = uuid.uuid4()
+
+            update_and_push('id', user_id, 'gameSessions', user_data)
 
             return '200'
         except Exception as e:
             print(e)
+            return '500'
 
 
 @app.route('/get_game_sessions', methods=['GET'])
