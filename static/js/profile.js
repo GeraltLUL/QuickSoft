@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', event => {
                         };
                         tmp.x = +gameSession.x[i];
                         tmp.y = +gameSession.y[i];
-                        tmp.value = 1;
+                        tmp.value = 5;
                         heatMapData.push(tmp);
                     }
 
@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     console.log(heatMap);
 
                     heatMap.setData({
-                        max: 1,
+                        max: 5,
                         data: heatMapData
                     });
                 });
