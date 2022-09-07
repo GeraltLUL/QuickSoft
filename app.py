@@ -234,7 +234,7 @@ def save_game_session():
                 user_data['x'].append(float(x[j].replace(',', '.')))
                 user_data['y'].append(float(y[j].replace(',', '.')))
 
-            user_data['sessionId'] = uuid.uuid4()
+            user_data['sessionId'] = str(uuid.uuid4())
 
             update_and_push('id', user_id, 'gameSessions', user_data)
 
