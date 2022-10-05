@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', event => {
                 console.log(data);
                 data.userSessionsData.forEach(gameSession => {
                     let heatMapDiv = document.createElement('div');
-                    heatMapDiv.style="background-image: url('../static/assets/img/profile/maps/map-base-real.png');width: 1080px;height: 1020px;border: red;border-style: double;margin: 1%;"
+                    heatMapDiv.style="background-image: url('../static/assets/img/profile/maps/1215516352.png');width: 1080px;height: 1020px;border: red;border-style: double;margin: 1%;"
                     heatMapDiv.classList.add('heatmap');
 
                     document.querySelector('#appendHere').append(heatMapDiv);
