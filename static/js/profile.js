@@ -25,8 +25,8 @@ window.addEventListener('DOMContentLoaded', event => {
                             y: 0,
                             value: 0
                         };
-                        tmp.x = +gameSession.x[i];
-                        tmp.y = +gameSession.y[i];
+                        tmp.x = +gameSession.x[i] * 30;
+                        tmp.y = +gameSession.y[i] * 30;
                         tmp.value = 5;
                         heatMapData.push(tmp);
                     }
